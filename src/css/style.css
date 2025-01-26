@@ -1,6 +1,38 @@
+/* Imports */
+@font-face {
+  font-family: Oswald-Regular;
+  src: url(../assets/fonts/Oswald-Regular.ttf);
+}
+
 body {
+  min-height: 340px;
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   background-image: url(../assets/img/star-wars--space-background.jpeg);
   color: var(--text-color);
+}
+
+main {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Oswald-Regular, sans-serif;
+}
+
+.card-container {
+  width: 90%;
+  height: 500px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--background-color);
+  width: 200px;
+  height: 250px;
 }

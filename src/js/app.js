@@ -1,4 +1,5 @@
 import fetchCharacters from "./fetchCharacters.js";
+import toggleMenu from "./navbar.js";
 import processCharacters from "./processCharacters.js";
 
 const initializeApp = async () => {

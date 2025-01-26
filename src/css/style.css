@@ -1,0 +1,6 @@
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../assets/img/star-wars--space-background.jpeg);
+  color: var(--text-color);
+}

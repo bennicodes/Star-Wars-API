@@ -1,5 +1,5 @@
 const processCharacters = (characters) => {
-  const limitedCharacters = characters.slice(0, 6);
+  const limitedCharacters = characters.slice(0, 8);
   // Create new objects for each character
   const processedCharacters = limitedCharacters.map((character, index) => {
     return {

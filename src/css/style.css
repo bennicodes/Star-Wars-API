@@ -57,11 +57,17 @@ main {
   background-color: var(--background-color);
   width: 250px;
   height: 300px;
+  border: none;
   border-radius: var(--border-radius);
 }
 .category__card:hover {
+  cursor: pointer;
   border: 4px solid var(--border-color);
   transition: 0.2s ease;
+}
+.category__card:active {
+  transform: scale(0.95);
+  transition: 0.3s ease;
 }
 
 .category__image-container {
@@ -90,6 +96,12 @@ main {
   font-family: Orbitron-Bold;
 }
 
-/* Media queries */
-@media screen and (max-width: 768px) {
+.films-container,
+.characters-container,
+.planets-container,
+.vehicles-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  
 }

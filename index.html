@@ -11,8 +11,9 @@
 
     <link rel="stylesheet" href="./src/css/reset.css" />
     <link rel="stylesheet" href="./src/css/variables.css" />
-    <link rel="stylesheet" href="./src/css/style.css" />
     <link rel="stylesheet" href="./src/css/navbar.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/characters.css" />
     <title>Star Wars</title>
   </head>
   <body>
@@ -29,19 +30,21 @@
         </div>
         <ul class="navbar__buttons">
           <li>
-            <button class="navbar__button navbar__button--active">Home</button>
+            <button class="navbar__button home navbar__button--active">
+              Home
+            </button>
           </li>
           <li>
-            <button class="navbar__button">Films</button>
+            <button class="navbar__button Films">Films</button>
           </li>
           <li>
-            <button class="navbar__button">Characters</button>
+            <button class="navbar__button characters">Characters</button>
           </li>
           <li>
-            <button class="navbar__button">Planets</button>
+            <button class="navbar__button Planets">Planets</button>
           </li>
           <li>
-            <button class="navbar__button">Vehicles</button>
+            <button class="navbar__button Vehicles">Vehicles</button>
           </li>
         </ul>
         <!-- Hamburger menu -->
@@ -52,12 +55,12 @@
         </div>
       </nav>
     </header>
-
+    <!-- ------------------------------------ -->
     <main>
       <!-- Categories -->
       <div class="category-container">
         <div class="category__card-container">
-          <div class="category__card">
+          <button class="category__card films">
             <div class="category__image-container">
               <img
                 src="./src/assets/img/star-wars-movie-poster.jpg"
@@ -65,11 +68,11 @@
                 class="category__image"
               />
             </div>
-          </div>
+          </button>
           <h2 class="category__heading">Films</h2>
         </div>
         <div class="category__card-container">
-          <div class="category__card">
+          <button class="category__card characters">
             <div class="category__image-container">
               <img
                 src="./src/assets/img/yoda-removebg-preview.png"
@@ -77,11 +80,11 @@
                 class="category__image"
               />
             </div>
-          </div>
+          </button>
           <h2 class="category__heading">Characters</h2>
         </div>
         <div class="category__card-container">
-          <div class="category__card">
+          <button class="category__card planets">
             <div class="category__image-container">
               <img
                 src="./src/assets/img/star-wars-planet-removebg-preview.png"
@@ -89,11 +92,11 @@
                 class="category__image"
               />
             </div>
-          </div>
+          </button>
           <h2 class="category__heading">Planets</h2>
         </div>
         <div class="category__card-container">
-          <div class="category__card">
+          <button class="category__card vehicles">
             <div class="category__image-container">
               <img
                 src="./src/assets/img/star-wars-spaceship-removebg-preview.png"
@@ -101,10 +104,15 @@
                 class="category__image"
               />
             </div>
-          </div>
+          </button>
           <h2 class="category__heading">Vehicles</h2>
         </div>
       </div>
+      <!-- Category containers -->
+      <div class="films-container"></div>
+      <div class="characters-container"></div>
+      <div class="planets-container"></div>
+      <div class="vehicles-container"></div>
     </main>
     <script type="module" src="./src/js/app.js"></script>
   </body>

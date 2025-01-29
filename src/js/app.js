@@ -1,16 +1,48 @@
 import fetchCharacters from "./fetchCharacters.js";
 import toggleMenu from "./navbar.js";
 import processCharacters from "./processCharacters.js";
+import renderCharacters from "./renderCharacters.js";
 
-const initializeApp = async () => {
-  const characters = await fetchCharacters(); // Fetch raw data
+// Event listeners for buttons
+const homeButton = document.querySelector(".home");
+const filmsButtons = document.querySelectorAll(".films");
+const charactersButtons = document.querySelectorAll(".characters");
+const planetsButtons = document.querySelectorAll(".planets");
+const vehiclesButtons = document.querySelectorAll(".vehicles");
+const categoryContainer = document.querySelector(".category-container");
 
-  const processedCharacters = processCharacters(characters); // Process data
+homeButton.addEventListener("click", () => {
+  window.location.href = "index.html";
+  console.log("Home button clicked");
+});
 
-  // Example: Access each processed character dynamically
-  processedCharacters.forEach((character) => {
-    console.log(`Character ID ${character.id}:`, character);
+charactersButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    categoryContainer.innerHTML = "";
+    fetchCharacters();
+    renderCharacters();
+    // processCharacters();
+    console.log("Characters button clicked");
   });
-};
+});
 
-initializeApp();
+filmsButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    fetchFilms();
+    console.log("Films button clicked");
+  });
+});
+
+planetsButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    fetchPlanets();
+    console.log("Planets button clicked");
+  });
+});
+
+vehiclesButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    fetchVehicles();
+    console.log("Vehicles button clicked");
+  });
+});

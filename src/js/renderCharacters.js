@@ -17,6 +17,7 @@ const renderCharacters = async () => {
       return;
     }
 
+    // Clear previous content and display the characters
     categoryContainer.innerHTML = "";
     charactersContainer.style.display = "flex";
 
@@ -45,7 +46,7 @@ const renderCharacters = async () => {
         }
       });
 
-      characterImage.src = character.image;
+      characterImage.src = ` ../assets/img/${character.name}`;
       characterImage.alt = `${character.name} image`;
       characterName.textContent = character.name;
 

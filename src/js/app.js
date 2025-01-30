@@ -1,6 +1,5 @@
 import fetchCharacters from "./fetchCharacters.js";
 import toggleMenu from "./navbar.js";
-import processCharacters from "./processCharacters.js";
 import renderCharacters from "./renderCharacters.js";
 
 // Event listeners for buttons
@@ -21,8 +20,6 @@ charactersButtons.forEach((button) => {
     categoryContainer.innerHTML = "";
     fetchCharacters();
     renderCharacters();
-    // processCharacters();
-    console.log("Characters button clicked");
   });
 });
 

@@ -1,4 +1,5 @@
-import fetchCharacters from "./fetchCharacters";
+import fetchCharacters from "./fetchCharacters.js";
+import validateImage from "./validateImage.js";
 
 const renderCharacters = async () => {
   const categoryContainer = document.querySelector(".category-container");
@@ -21,8 +22,17 @@ const renderCharacters = async () => {
     categoryContainer.innerHTML = "";
     charactersContainer.style.display = "flex";
 
+    const getImagePath = async (name, type = "characters") => {
+      const imagePath = `./src/assets/img/${name}.png`;
+      console.log(imagePath);
+
+      const exists = await validateImage(imagePath);
+
+      return exists ? imagePath : "../assets/img/default.jpg";
+    };
+
     // Create HTML elements
-    characters.forEach((character) => {
+    characters.forEach(async (character) => {
       const characterContainer = document.createElement("div");
       const characterImageContainer = document.createElement("div");
       const characterImage = document.createElement("img");
@@ -39,25 +49,33 @@ const renderCharacters = async () => {
       characterData.classList.add("character__data");
 
       Object.entries(character).forEach(([key, value]) => {
-        if (key !== "name" && key !== "image") {
+        if (key !== "name") {
+          // Replace underscores with spaces and capitalize the first letter
+          const formattedKey = key
+            .replace(/_/g, " ")
+            .replace(/^\w/, (c) => c.toUpperCase());
+
           const dataItem = document.createElement("li");
-          dataItem.textContent = `${key}: ${value}`;
+          dataItem.textContent = `${formattedKey}: ${value}`;
           characterData.append(dataItem);
         }
       });
 
-      characterImage.src = ` ../assets/img/${character.name}`;
-      characterImage.alt = `${character.name} image`;
+      // Set character name
       characterName.textContent = character.name;
 
-      // Append the data to container
+      // Fetch image path
+      getImagePath(character.name).then((imagePath) => {
+        characterImage.src = imagePath;
+        characterImage.alt = `Image of ${character.name}`;
+      });
+
+      // Append elements
       characterContainer.append(characterImageContainer);
       characterImageContainer.append(characterImage);
       characterImageContainer.append(characterName);
       characterContainer.append(characterDataContainer);
       characterDataContainer.append(characterData);
-
-      // Append the full character to main container
       charactersContainer.append(characterContainer);
     });
     return;
@@ -66,8 +84,8 @@ const renderCharacters = async () => {
     const errorMessage = document.createElement("p");
     errorMessage.textContent =
       "Failed to load characters. Please try again later.";
-    charactersContainer.append(errorMessage);
     errorMessage.classList.add("error-message");
+    charactersContainer.append(errorMessage);
   }
 };
 

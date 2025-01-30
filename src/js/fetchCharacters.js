@@ -2,16 +2,19 @@ const fetchCharacters = async () => {
   try {
     const response = await fetch("https://swapi.py4e.com/api/people/");
     const data = await response.json();
+    console.log(data.results);
 
     const transformData = (charactersContainer) => {
       const firstSixCharacters = charactersContainer.slice(0, 6); // Limit to the first 6 characters
       return firstSixCharacters.map((character, index) => ({
-        id: index + 1, // Assign a unique ID
         name: character.name,
-        height: character.height,
+        birth_year: character.birth_year,
+        mass: `${character.mass} kg`,
+
+        height: `${character.height} cm`,
         gender: character.gender,
-        hairColor: character.hair_color,
-        skinColor: character.skin_color,
+        hair_color: character.hair_color,
+        skin_color: character.skin_color,
       }));
     };
 

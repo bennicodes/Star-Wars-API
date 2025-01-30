@@ -1,1 +1,1 @@
-I used chat to get the images dynamically based on the object name
+I used chat GPT to help get the images dynamically based on the object name

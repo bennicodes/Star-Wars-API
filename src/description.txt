@@ -1,1 +1,1 @@
-I used chat GPT to help get the images dynamically based on the object name
+I used chat GPT to help get the images dynamically based on the object name, and formatting the key in the objects dynamically so that it can be extracted directly into the data list.

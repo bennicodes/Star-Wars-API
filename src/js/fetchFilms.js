@@ -25,6 +25,5 @@ const fetchFilms = async () => {
     return;
   }
 };
-fetchFilms();
 
 export default fetchFilms;

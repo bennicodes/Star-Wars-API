@@ -2,8 +2,9 @@ import fetchCharacters from "./fetchCharacters.js";
 import validateImage from "./validateImage.js";
 
 const renderCharacters = async () => {
-  const categoryContainer = document.querySelector(".category-container");
-  const charactersContainer = document.querySelector(".characters-container");
+  const categoriesContainer = document.querySelector(".categories-container");
+  const charactersContainer = document.querySelector(".characters-category");
+
   try {
     const characters = await fetchCharacters();
     console.log("Final Character Objects:", characters);
@@ -19,16 +20,14 @@ const renderCharacters = async () => {
     }
 
     // Clear previous content and display the characters
-    categoryContainer.innerHTML = "";
+    categoriesContainer.innerHTML = "";
     charactersContainer.style.display = "flex";
 
     const getImagePath = async (name, type = "characters") => {
       const imagePath = `./src/assets/img/${name}.png`;
-      console.log(imagePath);
+      const imageExists = await validateImage(imagePath);
 
-      const exists = await validateImage(imagePath);
-
-      return exists ? imagePath : "../assets/img/default.jpg";
+      return imageExists ? imagePath : "../assets/img/default.png";
     };
 
     // Create HTML elements
@@ -38,15 +37,15 @@ const renderCharacters = async () => {
       const characterImage = document.createElement("img");
       const characterName = document.createElement("h2");
       const characterDataContainer = document.createElement("div");
-      const characterData = document.createElement("ul");
+      const characterDataList = document.createElement("ul");
 
       // Add classes
-      characterContainer.classList.add("character-container");
-      characterImageContainer.classList.add("character__image-container");
-      characterImage.classList.add("character__image");
-      characterName.classList.add("character__name");
-      characterDataContainer.classList.add("character__data-container");
-      characterData.classList.add("character__data");
+      characterContainer.classList.add("data__card-container");
+      characterImageContainer.classList.add("data__image-container");
+      characterImage.classList.add("data__image");
+      characterName.classList.add("data__heading");
+      characterDataContainer.classList.add("data__list-container");
+      characterDataList.classList.add("data__list");
 
       Object.entries(character).forEach(([key, value]) => {
         if (key !== "name") {
@@ -57,7 +56,7 @@ const renderCharacters = async () => {
 
           const dataItem = document.createElement("li");
           dataItem.textContent = `${formattedKey}: ${value}`;
-          characterData.append(dataItem);
+          characterDataList.append(dataItem);
         }
       });
 
@@ -71,12 +70,12 @@ const renderCharacters = async () => {
       });
 
       // Append elements
+      charactersContainer.append(characterContainer);
       characterContainer.append(characterImageContainer);
       characterImageContainer.append(characterImage);
       characterImageContainer.append(characterName);
       characterContainer.append(characterDataContainer);
-      characterDataContainer.append(characterData);
-      charactersContainer.append(characterContainer);
+      characterDataContainer.append(characterDataList);
     });
     return;
   } catch (error) {
@@ -90,5 +89,3 @@ const renderCharacters = async () => {
 };
 
 export default renderCharacters;
-
-// TODO: Remove id from render

@@ -45,7 +45,7 @@ const renderFilms = async () => {
       filmImageContainer.classList.add("data__image-container");
       filmImage.classList.add("data__image");
       filmTitle.classList.add("data__heading");
-      filmDataContainer.classList.add("data__list-container");
+      filmDataContainer.classList.add("data-container");
       filmData.classList.add("data__list");
 
       Object.entries(film).forEach(([key, value]) => {
@@ -55,8 +55,20 @@ const renderFilms = async () => {
             .replace(/_/g, " ")
             .replace(/^\w/, (c) => c.toUpperCase());
 
+          // Create a span for the label (key)
+          const dataItemLabel = document.createElement("span");
+          dataItemLabel.textContent = `${formattedKey}: `;
+          dataItemLabel.classList.add("data-label"); // Add a class for styling
+
+          // Create the list item
           const dataItem = document.createElement("li");
-          dataItem.textContent = `${formattedKey}: ${value}`;
+          dataItem.classList.add("data")
+          
+          // Create a text node for the value
+          const valueNode = document.createTextNode(value);
+
+          // Append label and value separately
+          dataItem.append(dataItemLabel, valueNode);
           filmData.append(dataItem);
         }
       });

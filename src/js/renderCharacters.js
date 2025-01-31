@@ -15,7 +15,6 @@ const renderCharacters = async () => {
       noCharactersParagraph.textContent = "No characters found.";
       noCharactersParagraph.classList.add("error-message");
       charactersContainer.append(noCharactersParagraph);
-
       return;
     }
 
@@ -23,10 +22,9 @@ const renderCharacters = async () => {
     categoriesContainer.innerHTML = "";
     charactersContainer.style.display = "flex";
 
-    const getImagePath = async (name, type = "characters") => {
+    const getImagePath = async (name) => {
       const imagePath = `./src/assets/img/${name}.png`;
       const imageExists = await validateImage(imagePath);
-
       return imageExists ? imagePath : "../assets/img/default.png";
     };
 
@@ -44,18 +42,30 @@ const renderCharacters = async () => {
       characterImageContainer.classList.add("data__image-container");
       characterImage.classList.add("data__image");
       characterName.classList.add("data__heading");
-      characterDataContainer.classList.add("data__list-container");
-      characterDataList.classList.add("data__list");
+      characterDataContainer.classList.add("data-container");
+      characterDataList.classList.add("data__list", "data__list-characters");
 
       Object.entries(character).forEach(([key, value]) => {
         if (key !== "name") {
           // Replace underscores with spaces and capitalize the first letter
           const formattedKey = key
             .replace(/_/g, " ")
-            .replace(/^\w/, (c) => c.toUpperCase());
+            .replace(/\b\w/g, (c) => c.toUpperCase());
 
+          // Create a span for the label (key)
+          const dataItemLabel = document.createElement("span");
+          dataItemLabel.textContent = `${formattedKey}: `;
+          dataItemLabel.classList.add("data-label");
+
+          // Create the list item
           const dataItem = document.createElement("li");
-          dataItem.textContent = `${formattedKey}: ${value}`;
+          dataItem.classList.add("data");
+
+          // Create a text node for the value
+          const valueNode = document.createTextNode(value);
+
+          // Append label and value separately
+          dataItem.append(dataItemLabel, valueNode);
           characterDataList.append(dataItem);
         }
       });
@@ -78,7 +88,7 @@ const renderCharacters = async () => {
       characterDataContainer.append(characterDataList);
     });
   } catch (error) {
-    console.log("Error while rendering characters:");
+    console.log("Error while rendering characters:", error);
     const errorMessage = document.createElement("p");
     errorMessage.textContent =
       "Failed to load characters. Please try again later.";

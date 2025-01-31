@@ -1,4 +1,5 @@
 import fetchCharacters from "./fetchCharacters.js";
+import fetchFilms from "./fetchFilms.js";
 import toggleMenu from "./navbar.js";
 import renderCharacters from "./renderCharacters.js";
 
@@ -15,18 +16,18 @@ homeButton.addEventListener("click", () => {
   console.log("Home button clicked");
 });
 
+filmsButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    fetchFilms();
+    console.log("Films button clicked");
+  });
+});
+
 charactersButtons.forEach((button) => {
   button.addEventListener("click", () => {
     categoryContainer.innerHTML = "";
     fetchCharacters();
     renderCharacters();
-  });
-});
-
-filmsButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    fetchFilms();
-    console.log("Films button clicked");
   });
 });
 

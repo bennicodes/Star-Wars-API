@@ -1,6 +1,8 @@
+// Imports
 import fetchCharacters from "./fetchCharacters.js";
 import fetchFilms from "./fetchFilms.js";
 import fetchPlanets from "./fetchPlanets.js";
+import fetchVehicles from "./fetchVehicles.js";
 import hideAllCategories from "./hideCategory.js";
 import renderCharacters from "./renderCharacters.js";
 import renderFilms from "./renderFilms.js";

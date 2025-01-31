@@ -1,8 +1,10 @@
 import fetchCharacters from "./fetchCharacters.js";
 import fetchFilms from "./fetchFilms.js";
+import fetchPlanets from "./fetchPlanets.js";
 import hideAllCategories from "./hideCategory.js";
 import renderCharacters from "./renderCharacters.js";
 import renderFilms from "./renderFilms.js";
+import renderPlanets from "./renderPlanets.js";
 
 // Element selection
 const homeButton = document.querySelector(".home");
@@ -40,9 +42,11 @@ function handleCategorySelection(categoryClass) {
       break;
     case "planets":
       fetchPlanets();
+      renderPlanets();
       break;
     case "vehicles":
       fetchVehicles();
+      renderVehicles();
       break;
   }
 }

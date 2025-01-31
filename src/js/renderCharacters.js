@@ -13,7 +13,7 @@ const renderCharacters = async () => {
     if (characters.length === 0) {
       const noCharactersParagraph = document.createElement("p");
       noCharactersParagraph.textContent = "No characters found.";
-      noCharactersParagraph.classList.add("characters__paragraph");
+      noCharactersParagraph.classList.add("error-message");
       charactersContainer.append(noCharactersParagraph);
 
       return;
@@ -77,7 +77,6 @@ const renderCharacters = async () => {
       characterContainer.append(characterDataContainer);
       characterDataContainer.append(characterDataList);
     });
-    return;
   } catch (error) {
     console.log("Error while rendering characters:");
     const errorMessage = document.createElement("p");

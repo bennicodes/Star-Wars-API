@@ -14,7 +14,7 @@ const renderFilms = async () => {
     if (films.length === 0) {
       const noFilmsParagraph = document.createElement("p");
       noFilmsParagraph.textContent = "No films found.";
-      noFilmsParagraph.classList.add("films__paragraph");
+      noFilmsParagraph.classList.add("error-message");
       filmsContainer.append(noFilmsParagraph);
 
       return;
@@ -44,7 +44,7 @@ const renderFilms = async () => {
       filmContainer.classList.add("data__card-container");
       filmImageContainer.classList.add("data__image-container");
       filmImage.classList.add("data__image");
-      filmTitle.classList.add("data__title");
+      filmTitle.classList.add("data__heading");
       filmDataContainer.classList.add("data__list-container");
       filmData.classList.add("data__list");
 
@@ -78,7 +78,6 @@ const renderFilms = async () => {
       filmContainer.append(filmDataContainer);
       filmDataContainer.append(filmData);
     });
-    return;
   } catch (error) {
     console.log("Error while rendering films:");
     const errorMessage = document.createElement("p");

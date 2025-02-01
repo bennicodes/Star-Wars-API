@@ -40,7 +40,7 @@ const renderPlanets = async () => {
       // Add classes
       planetContainer.classList.add("data__card-container");
       planetImageContainer.classList.add("data__image-container");
-      planetImage.classList.add("data__image", "data__image-planets");
+      planetImage.classList.add("data__image");
       planetName.classList.add("data__heading");
       planetDataContainer.classList.add("data-container");
       planetDataList.classList.add("data__list");

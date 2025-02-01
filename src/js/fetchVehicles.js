@@ -11,8 +11,6 @@ const fetchVehicles = async () => {
         manufacturer: vehicle.manufacturer,
         price: `${vehicle.cost_in_credits} credits`,
         length: `${vehicle.length} meters`,
-        crew: vehicle.crew,
-        passengers: vehicle.passengers,
         vehicle_class: vehicle.vehicle_class,
       }));
     };

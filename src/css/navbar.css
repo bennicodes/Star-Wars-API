@@ -27,6 +27,11 @@
   width: 6rem;
   height: auto;
 }
+
+.navbar__logo-link {
+  height: 100%;
+  z-index: 1;
+}
 .navbar__logo-link:hover {
   cursor: pointer;
 }

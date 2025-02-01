@@ -7,6 +7,7 @@ import hideAllCategories from "./hideCategory.js";
 import renderCharacters from "./renderCharacters.js";
 import renderFilms from "./renderFilms.js";
 import renderPlanets from "./renderPlanets.js";
+import renderVehicles from "./renderVehicles.js";
 
 // Element selection
 const homeButton = document.querySelector(".home");

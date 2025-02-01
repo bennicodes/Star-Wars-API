@@ -2,6 +2,7 @@ const fetchFilms = async () => {
   try {
     const response = await fetch("https://swapi.py4e.com/api/films/");
     const data = await response.json();
+    console.log(data.results);
 
     const transformData = (FilmsContainer) => {
       const firstSixFilms = FilmsContainer.slice(0, 6); // Limit to the first 6 Films

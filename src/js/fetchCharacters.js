@@ -8,10 +8,8 @@ const fetchCharacters = async () => {
       const firstSixCharacters = charactersContainer.slice(0, 6); // Limit to the first 6 characters
       return firstSixCharacters.map((character, index) => ({
         name: character.name,
-        birth_year: character.birth_year,
-        mass: `${character.mass} kg`,
-
         height: `${character.height} cm`,
+        mass: `${character.mass} kg`,
         gender: character.gender,
         hair_color: character.hair_color,
         skin_color: character.skin_color,

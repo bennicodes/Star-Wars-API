@@ -122,6 +122,9 @@ main {
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
 }
+.data__vehicle-card-container {
+  /* height: 450px; */
+}
 
 .data__image-container {
   height: 300px;
@@ -134,13 +137,12 @@ main {
 }
 
 .data__image {
-  height: 75%;
+  max-width: 100%;
+  max-height: 75%;
   object-fit: cover;
 }
-.data__image-planets {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+.data__image-vehicle {
+  padding-top: var(--spacing-large);
 }
 
 .data__heading {

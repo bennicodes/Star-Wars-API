@@ -1,6 +1,6 @@
 import fetchFilms from "./fetchFilms.js";
 import validateImage from "./validateImage.js";
-
+// TODO: Sort films after episode number
 const renderFilms = async () => {
   const categoriesContainer = document.querySelector(".categories-container");
   const categoryContainer = document.querySelectorAll(".category-container");
@@ -62,8 +62,8 @@ const renderFilms = async () => {
 
           // Create the list item
           const dataItem = document.createElement("li");
-          dataItem.classList.add("data")
-          
+          dataItem.classList.add("data");
+
           // Create a text node for the value
           const valueNode = document.createTextNode(value);
 

@@ -3,9 +3,8 @@ const fetchVehicles = async () => {
     const response = await fetch("https://swapi.py4e.com/api/vehicles/");
     const data = await response.json();
 
-    const transformData = (vehiclesContainer) => {
-      const firstSixVehicles = vehiclesContainer.slice(0, 6); // Limit to the first 6 vehicles
-      return firstSixVehicles.map((vehicle) => ({
+    const transformData = (vehicles) => {
+      return vehicles.slice(0, 6).map((vehicle) => ({
         name: vehicle.name,
         model: vehicle.model,
         manufacturer: vehicle.manufacturer,

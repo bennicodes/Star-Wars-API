@@ -15,7 +15,6 @@ const renderPlanets = async () => {
       noPlanetsParagraph.textContent = "No planets found.";
       noPlanetsParagraph.classList.add("error-message");
       planetsContainer.append(noPlanetsParagraph);
-      return;
     }
 
     // Clear previous content and display the planets
@@ -84,6 +83,8 @@ const renderPlanets = async () => {
     });
   } catch (error) {
     console.log("Error while rendering planets:", error);
+    planetsContainer.style.display = "flex";
+
     const errorMessage = document.createElement("p");
     errorMessage.textContent =
       "Failed to load planets. Please try again later.";

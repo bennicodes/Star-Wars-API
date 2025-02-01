@@ -1,6 +1,6 @@
 import fetchFilms from "./fetchFilms.js";
 import validateImage from "./validateImage.js";
-// TODO: Sort films after episode number
+
 const renderFilms = async () => {
   const categoriesContainer = document.querySelector(".categories-container");
   const categoryContainer = document.querySelectorAll(".category-container");
@@ -16,8 +16,6 @@ const renderFilms = async () => {
       noFilmsParagraph.textContent = "No films found.";
       noFilmsParagraph.classList.add("error-message");
       filmsContainer.append(noFilmsParagraph);
-
-      return;
     }
 
     // Sort films by episode number in ascending order (Episode 1 first)
@@ -99,6 +97,8 @@ const renderFilms = async () => {
     });
   } catch (error) {
     console.log("Error while rendering films:");
+    filmsContainer.style.display = "flex";
+
     const errorMessage = document.createElement("p");
     errorMessage.textContent = "Failed to load films. Please try again later.";
     errorMessage.classList.add("error-message");

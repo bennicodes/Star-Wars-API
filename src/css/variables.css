@@ -2,7 +2,8 @@
   /* Colors */
   --background-color: #000;
   --text-color: white;
-  --heading-background-color: #0f0f0f;
+  --background-color-text: #0f0f0f;
+  --background-color-card: #000000b1;
 
   /* Spacing */
   --spacing-small: 0.5rem;

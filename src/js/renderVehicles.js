@@ -15,7 +15,6 @@ const renderVehicles = async () => {
       noVehiclesParagraph.textContent = "No vehicles found.";
       noVehiclesParagraph.classList.add("error-message");
       vehiclesContainer.append(noVehiclesParagraph);
-      return;
     }
 
     // Clear previous content and display the vehicles
@@ -92,6 +91,8 @@ const renderVehicles = async () => {
     });
   } catch (error) {
     console.log("Error while rendering vehicles:", error);
+    charactersContainer.style.display = "flex";
+
     const errorMessage = document.createElement("p");
     errorMessage.textContent =
       "Failed to load vehicles. Please try again later.";

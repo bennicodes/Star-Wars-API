@@ -3,9 +3,8 @@ const fetchPlanets = async () => {
     const response = await fetch("https://swapi.py4e.com/api/planets/");
     const data = await response.json();
 
-    const transformData = (planetsContainer) => {
-      const firstSixPlanets = planetsContainer.slice(0, 6); // Limit to the first 10 planets
-      return firstSixPlanets.map((planet) => ({
+    const transformData = (planets) => {
+      return planets.slice(0, 6).map((planet) => ({
         name: planet.name,
         population: planet.population,
         diameter: `${planet.diameter} km`,

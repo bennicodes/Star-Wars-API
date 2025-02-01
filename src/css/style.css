@@ -88,7 +88,7 @@ main {
 }
 
 .category__heading {
-  background-color: var(--heading-background-color);
+  background-color: var(--background-color-text);
   width: 100%;
 
   text-align: center;
@@ -111,7 +111,7 @@ main {
 }
 
 .data__card-container {
-  background-color: #000000b1;
+  background-color: var(--background-color-card);
   height: 340px;
   width: 350px;
   display: flex;
@@ -121,9 +121,6 @@ main {
   padding: var(--spacing-medium) 0;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-}
-.data__vehicle-card-container {
-  /* height: 450px; */
 }
 
 .data__image-container {
@@ -180,8 +177,11 @@ main {
 }
 
 .error-message {
-  width: 100%;
+  background-color: var(--background-color-text);
+  width: 50%;
   text-align: center;
+  padding: var(--spacing-medium);
+  font-size: var(--font-size-large);
 }
 
 /* Media queries */

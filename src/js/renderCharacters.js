@@ -15,7 +15,6 @@ const renderCharacters = async () => {
       noCharactersParagraph.textContent = "No characters found.";
       noCharactersParagraph.classList.add("error-message");
       charactersContainer.append(noCharactersParagraph);
-      return;
     }
 
     // Clear previous content and display the characters
@@ -89,6 +88,7 @@ const renderCharacters = async () => {
     });
   } catch (error) {
     console.log("Error while rendering characters:", error);
+    charactersContainer.style.display = "flex";
     const errorMessage = document.createElement("p");
     errorMessage.textContent =
       "Failed to load characters. Please try again later.";

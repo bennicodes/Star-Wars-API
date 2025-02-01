@@ -8,9 +8,9 @@ const fetchFilms = async () => {
       const firstSixFilms = FilmsContainer.slice(0, 6); // Limit to the first 6 Films
       return firstSixFilms.map((film, index) => ({
         title: film.title,
+        Episode: `Episode ${film.episode_id}`,
         release_date: film.release_date,
         director: film.director,
-        Episode: `Episode ${film.episode_id}`,
         Producer: film.producer,
       }));
     };

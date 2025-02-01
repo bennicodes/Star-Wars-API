@@ -103,7 +103,7 @@ main {
   height: 100%;
   justify-content: center;
   align-items: center;
-  padding: var(--spacing-medium) var(--spacing-xlarge);
+  padding: var(--spacing-large) var(--spacing-xlarge);
   margin-top: 80px;
   gap: var(--spacing-large);
   flex-wrap: wrap;

@@ -20,6 +20,13 @@ const renderFilms = async () => {
       return;
     }
 
+    // Sort films by episode number in ascending order (Episode 1 first)
+    films.sort(
+      (a, b) =>
+        parseInt(a.Episode.replace(/\D/g, ""), 10) -
+        parseInt(b.Episode.replace(/\D/g, ""), 10)
+    );
+
     // Clear previous content and display the films
     categoriesContainer.innerHTML = "";
     filmsContainer.style.display = "flex";

@@ -37,9 +37,14 @@ app.get("/characters", async (req, res) => {
 // Fetch Planets
 app.get("/planets", async (req, res) => {
   try {
-    const response = await fetch("https://swapi.py4e.com/api/planets/");
+    const response = await fetch(`${process.env.BASE_URL}/planets/`);
     const data = await response.json();
-    res.json(data.results);
+
+    if (!data.results || data.results.length === 0) {
+      throw new Error("No planets found");
+    }
+
+    res.json(data);
   } catch (error) {
     console.error("Error fetching planets:", error);
     res.status(500).json({ error: "Failed to fetch planets" });
@@ -51,7 +56,7 @@ app.get("/vehicles", async (req, res) => {
   try {
     const response = await fetch("https://swapi.py4e.com/api/vehicles/");
     const data = await response.json();
-    res.json(data.results);
+    res.json(data);
   } catch (error) {
     console.error("Error fetching vehicles:", error);
     res.status(500).json({ error: "Failed to fetch vehicles" });

@@ -17,9 +17,14 @@ const renderVehicles = async () => {
       vehiclesContainer.append(noVehiclesParagraph);
     }
 
-    // Clear previous content and display the vehicles
-    categoriesContainer.innerHTML = "";
+    categoriesContainer.style.display = "none";
     vehiclesContainer.style.display = "flex";
+
+    const goBackButton = document.querySelector(".go-back-button");
+    goBackButton.style.display = "block";
+    goBackButton.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
 
     const getImagePath = async (name, type = "vehicles") => {
       const imagePath = `./src/assets/img/${name}.png`;
@@ -27,7 +32,7 @@ const renderVehicles = async () => {
       return imageExists ? imagePath : "../assets/img/default.png";
     };
 
-    // Create HTML elements for each vehicle
+    // Create HTML elements
     vehicles.forEach(async (vehicle) => {
       const vehicleContainer = document.createElement("div");
       const vehicleImageContainer = document.createElement("div");
@@ -54,7 +59,7 @@ const renderVehicles = async () => {
             .replace(/_/g, " ")
             .replace(/^\w/, (c) => c.toUpperCase());
 
-          // Create label span
+          // Create span for the object key
           const dataItemLabel = document.createElement("span");
           dataItemLabel.textContent = `${formattedKey}: `;
           dataItemLabel.classList.add("data-label");
@@ -102,5 +107,3 @@ const renderVehicles = async () => {
 };
 
 export default renderVehicles;
-
-// TODO: Add images and back button

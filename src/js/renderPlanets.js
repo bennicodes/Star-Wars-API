@@ -17,9 +17,14 @@ const renderPlanets = async () => {
       planetsContainer.append(noPlanetsParagraph);
     }
 
-    // Clear previous content and display the planets
-    categoriesContainer.innerHTML = "";
+    categoriesContainer.style.display = "none";
     planetsContainer.style.display = "flex";
+
+    const goBackButton = document.querySelector(".go-back-button");
+    goBackButton.style.display = "block";
+    goBackButton.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
 
     const getImagePath = async (name) => {
       const imagePath = `./src/assets/img/${name}.png`;

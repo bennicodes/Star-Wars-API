@@ -16,7 +16,8 @@ const categoryButtons = document.querySelectorAll(".navbar__button");
 const categoryCards = document.querySelectorAll(".category__card");
 const categoryContainer = document.querySelector(".categories-container");
 
-// Helper function to set active navbar button
+toggleMenu();
+
 function setActiveNavbarButton(categoryClass) {
   categoryButtons.forEach((btn) =>
     btn.classList.remove("navbar__button--active")
@@ -58,7 +59,7 @@ function handleCategorySelection(categoryClass) {
 // Event listeners for navbar buttons
 categoryButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const categoryClass = button.classList[1]; // Get the category class
+    const categoryClass = button.classList[1];
     handleCategorySelection(categoryClass);
   });
 });
@@ -66,7 +67,7 @@ categoryButtons.forEach((button) => {
 // Event listeners for category cards
 categoryCards.forEach((card) => {
   card.addEventListener("click", () => {
-    const categoryClass = card.classList[1]; // Get the category class
+    const categoryClass = card.classList[1];
     handleCategorySelection(categoryClass);
   });
 });

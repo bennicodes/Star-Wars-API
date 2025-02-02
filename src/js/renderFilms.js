@@ -25,9 +25,14 @@ const renderFilms = async () => {
         parseInt(b.Episode.replace(/\D/g, ""), 10)
     );
 
-    // Clear previous content and display the films
-    categoriesContainer.innerHTML = "";
+    categoriesContainer.style.display = "none";
     filmsContainer.style.display = "flex";
+
+    const goBackButton = document.querySelector(".go-back-button");
+    goBackButton.style.display = "block";
+    goBackButton.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
 
     const getImagePath = async (title, type = "films") => {
       const imagePath = `./src/assets/img/${title}.png`;
@@ -36,7 +41,7 @@ const renderFilms = async () => {
       return imageExists ? imagePath : "../assets/img/default.png";
     };
 
-    // Create HTML elements
+    // Create elements
     films.forEach(async (film) => {
       const filmContainer = document.createElement("div");
       const filmImageContainer = document.createElement("div");
@@ -60,10 +65,10 @@ const renderFilms = async () => {
             .replace(/_/g, " ")
             .replace(/^\w/, (c) => c.toUpperCase());
 
-          // Create a span for the label (key)
+          // Create a span for the object key
           const dataItemLabel = document.createElement("span");
           dataItemLabel.textContent = `${formattedKey}: `;
-          dataItemLabel.classList.add("data-label"); // Add a class for styling
+          dataItemLabel.classList.add("data-label");
 
           // Create the list item
           const dataItem = document.createElement("li");
@@ -72,7 +77,7 @@ const renderFilms = async () => {
           // Create a text node for the value
           const valueNode = document.createTextNode(value);
 
-          // Append label and value separately
+          // Append label and value
           dataItem.append(dataItemLabel, valueNode);
           filmData.append(dataItem);
         }

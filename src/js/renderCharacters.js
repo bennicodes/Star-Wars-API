@@ -17,9 +17,14 @@ const renderCharacters = async () => {
       charactersContainer.append(noCharactersParagraph);
     }
 
-    // Clear previous content and display the characters
-    categoriesContainer.innerHTML = "";
+    categoriesContainer.style.display = "none";
     charactersContainer.style.display = "flex";
+
+    const goBackButton = document.querySelector(".go-back-button");
+    goBackButton.style.display = "block";
+    goBackButton.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
 
     const getImagePath = async (name) => {
       const imagePath = `./src/assets/img/${name}.png`;
@@ -51,7 +56,7 @@ const renderCharacters = async () => {
             .replace(/_/g, " ")
             .replace(/\b\w/g, (c) => c.toUpperCase());
 
-          // Create a span for the label (key)
+          // Create a span for the object key
           const dataItemLabel = document.createElement("span");
           dataItemLabel.textContent = `${formattedKey}: `;
           dataItemLabel.classList.add("data-label");
@@ -63,13 +68,12 @@ const renderCharacters = async () => {
           // Create a text node for the value
           const valueNode = document.createTextNode(value);
 
-          // Append label and value separately
+          // Append label and value
           dataItem.append(dataItemLabel, valueNode);
           characterDataList.append(dataItem);
         }
       });
 
-      // Set character name
       characterName.textContent = character.name;
 
       // Fetch image path

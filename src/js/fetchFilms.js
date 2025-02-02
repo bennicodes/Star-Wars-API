@@ -1,7 +1,8 @@
+import fetchData from "./fetchData.js";
+
 const fetchFilms = async () => {
   try {
-    const response = await fetch("http://localhost:3001/films");
-    const data = await response.json();
+    const data = await fetchData("films");
 
     const transformData = (films) => {
       return films.slice(0, 6).map((film) => ({
@@ -18,8 +19,7 @@ const fetchFilms = async () => {
 
     return filmObjects;
   } catch (error) {
-    console.log("Failed to fetch Star Wars Films:", error);
-    return [];
+    console.error("Failed to fetch Star Wars Films:", error);
   }
 };
 

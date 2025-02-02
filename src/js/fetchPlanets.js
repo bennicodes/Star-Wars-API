@@ -1,8 +1,11 @@
+import fetchData from "./fetchData.js";
+
 const fetchPlanets = async () => {
   try {
-    const response = await fetch("https://swapi.py4e.com/api/planets/");
-    const data = await response.json();
+    // Await the response from fetchData and store it in 'data'
+    const data = await fetchData("planets");
 
+    // Ensure data.results exists before transforming
     const transformData = (planets) => {
       return planets.slice(0, 6).map((planet) => ({
         name: planet.name,
@@ -14,16 +17,14 @@ const fetchPlanets = async () => {
       }));
     };
 
-    // Process and transform the data
-    const planetObjects = transformData(data.results);
+    // Check if data.results exists before transforming
+    const planetObjects = data.results ? transformData(data.results) : [];
     console.log("Transformed Planets:", planetObjects);
 
-    // Return the transformed Planets
     return planetObjects;
   } catch (error) {
     console.log("Failed to fetch Star Wars Planets:", error);
-    return;
   }
 };
-fetchPlanets();
+
 export default fetchPlanets;

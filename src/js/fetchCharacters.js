@@ -1,7 +1,8 @@
+import fetchData from "./fetchData.js";
+
 const fetchCharacters = async () => {
   try {
-    const response = await fetch("http://localhost:3001/characters");
-    const data = await response.json();
+    const data = await fetchData("characters");
 
     const transformData = (characters) => {
       return characters.slice(0, 6).map((character) => ({
@@ -19,7 +20,6 @@ const fetchCharacters = async () => {
     return characterObjects;
   } catch (error) {
     console.log("Failed to fetch Star Wars Characters:", error);
-    return [];
   }
 };
 

@@ -91,7 +91,7 @@ const renderVehicles = async () => {
     });
   } catch (error) {
     console.log("Error while rendering vehicles:", error);
-    charactersContainer.style.display = "flex";
+    vehiclesContainer.style.display = "flex";
 
     const errorMessage = document.createElement("p");
     errorMessage.textContent =

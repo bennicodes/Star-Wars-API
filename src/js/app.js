@@ -4,6 +4,7 @@ import fetchFilms from "./fetchFilms.js";
 import fetchPlanets from "./fetchPlanets.js";
 import fetchVehicles from "./fetchVehicles.js";
 import hideAllCategories from "./hideCategory.js";
+import toggleMenu from "./navbar.js";
 import renderCharacters from "./renderCharacters.js";
 import renderFilms from "./renderFilms.js";
 import renderPlanets from "./renderPlanets.js";

@@ -1,8 +1,8 @@
+import fetchData from "./fetchData.js";
+
 const fetchVehicles = async () => {
   try {
-    const response = await fetch("https://swapi.py4e.com/api/vehicles/");
-    const data = await response.json();
-
+    const data = await fetchData("vehicles");
     const transformData = (vehicles) => {
       return vehicles.slice(0, 6).map((vehicle) => ({
         name: vehicle.name,
@@ -18,11 +18,9 @@ const fetchVehicles = async () => {
     const vehicleObjects = transformData(data.results);
     console.log("Transformed Vehicles:", vehicleObjects);
 
-    // Return the transformed Vehicles
     return vehicleObjects;
   } catch (error) {
     console.log("Failed to fetch Star Wars Vehicles:", error);
-    return;
   }
 };
 

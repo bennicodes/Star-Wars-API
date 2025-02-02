@@ -44,6 +44,11 @@ main {
   left: 50px;
   display: none;
 }
+.go-back-button:hover {
+  background-color: var(--border-color);
+  color: var(--background-color);
+  cursor: pointer;
+}
 
 /* Category styling */
 .categories-container {
@@ -204,7 +209,7 @@ main {
 
 /* Media queries */
 @media screen and (max-width: 950px) {
-  .go-back-button{
+  .go-back-button {
     left: 15px;
   }
   .categories-container {

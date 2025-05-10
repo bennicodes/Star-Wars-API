@@ -18,7 +18,7 @@ const fetchPlanets = async () => {
     };
 
     // Check if data.results exists before transforming
-    const planetObjects = data.results ? transformData(data.results) : [];
+    const planetObjects = transformData(data);
     console.log("Transformed Planets:", planetObjects);
 
     return planetObjects;

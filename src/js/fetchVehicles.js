@@ -15,7 +15,7 @@ const fetchVehicles = async () => {
     };
 
     // Process and transform the data
-    const vehicleObjects = transformData(data.results);
+    const vehicleObjects = transformData(data);
     console.log("Transformed Vehicles:", vehicleObjects);
 
     return vehicleObjects;

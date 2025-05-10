@@ -2,7 +2,7 @@ import fetchData from "./fetchData.js";
 
 const fetchCharacters = async () => {
   try {
-    const data = await fetchData("characters");
+    const data = await fetchData("people");
 
     const transformData = (characters) => {
       return characters.slice(0, 6).map((character) => ({

@@ -1,12 +1,12 @@
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || "http://localhost:3001";
+const BASE_URL = "https://swapi.py4e.com/api";
 
 const fetchData = async (endpoint) => {
   try {
-    const response = await fetch(`${SERVER_URL}/${endpoint}`);
+    const response = await fetch(`${BASE_URL}/${endpoint}`);
     if (!response.ok)
       throw new Error(`Failed to fetch ${endpoint}: ${response.statusText}`);
-
-    return await response.json();
+    const data = await response.json();
+    return data.results;
   } catch (error) {
     console.error(`Error fetching ${endpoint}:`, error);
     return [];

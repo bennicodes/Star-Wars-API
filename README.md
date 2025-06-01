@@ -17,3 +17,7 @@ Users can explore films by category and view key data such as episode number, di
 
 - Netlify:
   https://api-starwars-project.netlify.app/index.html
+
+## License
+
+This project is part of an educational assignment and is not intended for production use.

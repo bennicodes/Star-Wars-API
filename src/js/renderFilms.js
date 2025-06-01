@@ -35,7 +35,7 @@ const renderFilms = async () => {
     });
 
     const getImagePath = async (title, type = "films") => {
-      const imagePath = `./public/assets/img/${title}.png`;
+      const imagePath = `./assets/img/${title}.png`;
       const imageExists = await validateImage(imagePath);
 
       return imageExists ? imagePath : "../assets/img/default.png";

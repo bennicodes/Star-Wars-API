@@ -1,4 +1,4 @@
-# Star Wars 🌌
+# Star Wars
 
 A dynamic web app built with JavaScript that fetches and displays detailed information about Star Wars films, characters, planets and vehicles.
 Users can explore films by category and view key data such as episode number, director, release date, and more.

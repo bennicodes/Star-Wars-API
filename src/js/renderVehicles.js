@@ -27,7 +27,7 @@ const renderVehicles = async () => {
     });
 
     const getImagePath = async (name, type = "vehicles") => {
-      const imagePath = `./src/assets/img/${name}.png`;
+      const imagePath = `./public/assets/img/${name}.png`;
       const imageExists = await validateImage(imagePath);
       return imageExists ? imagePath : "../assets/img/default.png";
     };

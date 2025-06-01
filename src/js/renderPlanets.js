@@ -27,7 +27,7 @@ const renderPlanets = async () => {
     });
 
     const getImagePath = async (name) => {
-      const imagePath = `./src/assets/img/${name}.png`;
+      const imagePath = `./public/assets/img/${name}.png`;
       const imageExists = await validateImage(imagePath);
       return imageExists ? imagePath : "../assets/img/default.png";
     };
